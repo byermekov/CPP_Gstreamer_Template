@@ -1,0 +1,30 @@
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+    
+    "dependencies": [
+        {
+            "name": "jsoncpp"
+        },
+        {
+            "name": "fmt"
+        },
+        {
+            "name": "spdlog"
+        }
+    ],
+    "overrides": [
+        {
+            "name": "jsoncpp",
+            "version": "1.9.5"
+        },
+        {
+            "name": "fmt",
+            "version": "9.1.0#1"
+        },
+        {
+            "name": "spdlog",
+            "version": "1.11.0#0"
+        }
+    ],
+    "builtin-baseline": "223d33be7d3ec6c3d64381ca37f501b8c87dda6a"
+}

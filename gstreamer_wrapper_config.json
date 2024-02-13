@@ -1,0 +1,36 @@
+
+{
+
+    // "gs_pipeline": [
+    //     "rtspsrc location=rtsp://192.168.0.230:554/user=admin_password=tlJwpbo6_channel=1_stream=0.sdp latency=10",
+    //     // "rtspsrc location=rtsp://root:root@192.168.0.95/onvif-media/media.amp?profile=profile_1_h264 latency=10",
+    //     "rtph264depay",
+    //     "h264parse",
+    //     "nvh264dec",
+    //     // "avdec_h264",
+    //     "queue max-size-time=250000000 max-size-bytes=0 max-size-buffers=0 leaky=2",
+    //     "videoconvert",
+    //     "queue max-size-time=2500000000 max-size-bytes=0 max-size-buffers=0 leaky=2", // 1sec = 1000000000
+    //     "capsfilter caps=\"video/x-raw, format=BGR\" name=frameout",
+    //     "queue max-size-time=250000000 max-size-bytes=0 max-size-buffers=0 leaky=2",
+    //     "videoconvert",
+    //     "fpsdisplaysink sync=false"
+    // ],
+    "gs_pipeline": [
+        "ksvideosrc",
+        "decodebin", 
+        "videoconvert",
+        // "queue max-size-time=5000000000 max-size-bytes=0 max-size-buffers=0 leaky=2",
+        "queue max-size-time=5000000000 max-size-bytes=0 max-size-buffers=0 leaky=0",
+        "capsfilter caps=\"video/x-raw,format=BGR\" name=frameout",
+        "queue",
+        "videoconvert",
+        "queue",
+        "fpsdisplaysink sync=false"
+    ],
+    "gs_waitForEosOnStop": 10000,
+    
+    "restartMonitor_loopSleep": 100,
+    "restartMonitor_playingStateExpiry": 20000
+
+}
